@@ -431,6 +431,74 @@ kbd{font-family:var(--f-code);font-size:11px;border:1px solid var(--border);bord
   .board{border-width:42px 42px 58px 42px;border-image-width:42px 42px 58px 42px;padding:0 6px}
 }
 
+/* ---------- restaurant objects on the other screens: chalk menu, chef, kraft tags, paper tickets, rail ---------- */
+/* Paper things stay light paper in both themes, so they carry their own light tokens. */
+.order,.note{--ground:#FFFFFF;--surface:#EFE9E2;--stone:#E4DCD2;--border:#D9D1C7;--rule:#E3DBD1;--text:#1F201D;--muted:#625C55;--accent:#1B6E66;--accent-pale:#DCEDEA;--on-accent:#FFFFFF;--positive:#2E7D32;--positive-pale:#DCFAE5;--negative:#B42318;--negative-pale:#FDECEA;color:var(--text);color-scheme:light;background:var(--paper);border:0;border-radius:0;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='7'%3E%3Cpath d='M0 7L7 0l7 7z'/%3E%3C/svg%3E") top left/14px 7px repeat-x,url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='7'%3E%3Cpath d='M0 0l7 7 7-7z'/%3E%3C/svg%3E") bottom left/14px 7px repeat-x,url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Crect width='8' height='8'/%3E%3C/svg%3E") center/100% calc(100% - 14px) no-repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='7'%3E%3Cpath d='M0 7L7 0l7 7z'/%3E%3C/svg%3E") top left/14px 7px repeat-x,url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='7'%3E%3Cpath d='M0 0l7 7 7-7z'/%3E%3C/svg%3E") bottom left/14px 7px repeat-x,url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Crect width='8' height='8'/%3E%3C/svg%3E") center/100% calc(100% - 14px) no-repeat}
+.order{overflow:visible}
+.order::before{content:"";position:static;display:block;width:auto;height:52px;border:0;border-radius:0;background:url("img/pin.png") center 10px/54px auto no-repeat;margin:0 0 -12px;filter:drop-shadow(0 2px 2px rgba(60,40,30,.25))}
+.order::after{display:none}
+.order-head{background:transparent;border-bottom:2px dotted #B9B0A5;padding:10px 24px 12px}
+.q-prog{background:var(--rule)}
+
+/* concept menu: the dish list is a chalkboard, the analogy is the chef talking */
+.menu.chalk{background:#1F2A23 padding-box;border-style:solid;border-width:30px 30px 42px 30px;border-image:url("img/board.jpg") 180 180 250 180 fill / 30px 30px 42px 30px stretch;border-radius:0;padding:4px 2px;color:var(--board-chalk)}
+.menu.chalk h2{font-family:var(--f-serif);font-size:20px;font-weight:700;color:var(--board-chalk)}
+.menu.chalk .prog{color:var(--board-dim)}
+.menu.chalk button{color:var(--board-dim);background:transparent}
+.menu.chalk button:hover{background:rgba(255,255,255,.07);color:var(--board-chalk)}
+.menu.chalk button[aria-current="true"]{background:rgba(255,255,255,.1);color:var(--board-hi)}
+.menu.chalk .ck{background:var(--board-hi)}
+.menu.chalk button:focus-visible{outline-color:var(--board-hi)}
+.say{display:grid;grid-template-columns:104px minmax(0,1fr);gap:14px;align-items:end;background:transparent;padding:0;margin-top:20px;max-width:46em}
+.say .chef{display:block;width:104px;height:auto;border-radius:18px;background:#F3ECE6}
+.say .bubble{position:relative;background:var(--accent-pale);border-radius:20px;padding:18px 22px}
+.say .bubble::before{content:"";position:absolute;left:-7px;bottom:30px;width:16px;height:16px;background:var(--accent-pale);transform:rotate(45deg);border-radius:3px}
+
+/* word cards are kraft ingredient tags, laid on the pantry counter */
+.stage{background:#F7F3F0;border-radius:var(--radius-card);padding:24px 16px}
+.flash{width:min(680px,100%);aspect-ratio:1000/481}
+.face,.face.back{background:url("img/tag.jpg") center/100% 100% no-repeat;border-radius:0;padding:7% 7% 7% 18%;color:#3B2A1A}
+.face .f-en,.face .f-ex,.face .f-hint,.face .f-topic{color:#6E5844}
+.face .f-topic{top:12%;left:18%}
+.face .f-state{top:10%;right:6%}
+.face .f-hint{bottom:10%}
+.face.back .f-mean{color:#1B5F57}
+.w-row{position:relative;background:#E8D8BF;color:#3B2A1A;padding-left:42px}
+.w-row::before{content:"";position:absolute;left:15px;top:21px;width:13px;height:13px;border-radius:50%;background:var(--ground);border:2px solid #C4A57C}
+.w-row .en,.w-row .ex{color:#6E5844}
+.w-row .tog{background:#F6EEE2;border-color:#CDB698;color:#5A4632}
+
+/* wrong-answer tickets hang on the spike */
+.title-spike{width:84px;height:84px;border-radius:18px;object-fit:cover;flex:none;background:#F4EDE5}
+.note{padding:0 22px 22px}
+.note::before{content:"";display:block;height:46px;margin:0 -22px -10px;background:url("img/pin.png") center 9px/46px auto no-repeat;filter:drop-shadow(0 2px 2px rgba(60,40,30,.25))}
+.n-list .note:nth-child(odd),.s8.rows .note:nth-child(odd){transform:rotate(-.5deg)}
+.n-list .note:nth-child(even),.s8.rows .note:nth-child(even){transform:rotate(.4deg)}
+
+/* kitchen rush: the ticket hangs from the order rail; memory tiles have a clay card back */
+.rail{display:block;width:100%;height:auto;position:relative;z-index:2;border-radius:10px}
+.g-board .order{width:100%;max-width:560px;margin:-26px auto 0;transform-origin:50% 0}
+.g-board .order::before{display:none}
+.g-board .order.hang{animation:swing .6s ease-out}
+@keyframes swing{0%{transform:rotate(-3deg)}60%{transform:rotate(1.4deg)}100%{transform:rotate(0)}}
+.m-back,.m-tile:hover .m-back{background:url("img/tileback.jpg") center/cover;color:transparent}
+.m-tile:hover .m-back{filter:brightness(1.06)}
+.m-front{background:#FBF8F3;border-color:#E2D8CC;color:#1F201D}
+.m-front .lab{color:#6E655B}
+.m-tile.is-done .m-front{background:#DCFAE5;border-color:transparent}
+.m-tile.is-miss .m-front{border-color:#B42318}
+@media (max-width:900px){
+  .menu.chalk{border-width:22px 22px 30px 22px;border-image-width:22px 22px 30px 22px;padding:2px}
+  .menu.chalk ol{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px;overflow:visible;padding:0}
+  .menu.chalk li{min-width:0}
+  .menu.chalk button{white-space:normal;font-size:13px;padding:6px 8px;min-height:34px}
+  .say{grid-template-columns:72px minmax(0,1fr)}
+  .say .chef{width:72px}
+  .flash{aspect-ratio:auto}
+}
+
 /* ---------- responsive ---------- */
 @media (max-width:1100px){
   .w-list{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -1192,7 +1260,7 @@ function renderLearn(){
   const i = CONCEPTS.findIndex(c=>c.id===cur), c = CONCEPTS[i], done = !!S.done[c.id];
   $('#view-learn').innerHTML = `
   <div class="learn">
-    <nav class="menu panel" aria-label="개념 메뉴">
+    <nav class="menu chalk" aria-label="개념 메뉴">
       <h2>개념 메뉴판</h2>
       <p class="prog">${doneCount()} / ${CONCEPTS.length} 익힘</p>
       <ol>${CONCEPTS.map(x=>`<li><button data-act="concept" data-id="${x.id}" aria-current="${x.id===cur}"><span>${esc(x.title)}</span>${S.done[x.id]?'<span class="ck" role="img" aria-label="익힘"></span>':''}</button></li>`).join('')}</ol>
@@ -1202,12 +1270,12 @@ function renderLearn(){
       <h1 id="dish-title">${esc(c.title)}</h1>
       <p class="lead">${fmt(c.line)}</p>
       <figure class="figure">${svg(ILL[c.id](), c.title+' 그림')}</figure>
-      <section class="say"><h2>쉽게 비유하면</h2><p>${fmt(c.analogy)}</p></section>
-      <section class="part"><h2>꼭 알아야 할 것</h2><ul class="points">${c.points.map(p=>`<li><span>${fmt(p)}</span></li>`).join('')}</ul></section>
-      ${c.flow?`<section class="part"><h2>순서대로 보면</h2><ol class="flow">${c.flow.map(s=>`<li><span class="step">${esc(s)}</span></li>`).join('')}</ol></section>`:''}
+      <section class="say"><img class="chef" src="img/chef.jpg" alt="손을 흔드는 요리사" width="400" height="460" loading="lazy"><div class="bubble"><h2>주방장의 한마디</h2><p>${fmt(c.analogy)}</p></div></section>
+      <section class="part"><h2>핵심 재료</h2><ul class="points">${c.points.map(p=>`<li><span>${fmt(p)}</span></li>`).join('')}</ul></section>
+      ${c.flow?`<section class="part"><h2>조리 순서</h2><ol class="flow">${c.flow.map(s=>`<li><span class="step">${esc(s)}</span></li>`).join('')}</ol></section>`:''}
       ${c.table?`<section class="part"><h2>한눈에 정리</h2><div class="tbl"><table><thead><tr>${c.table.head.map(h=>`<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>${c.table.rows.map(r=>`<tr>${r.map(d=>`<td>${esc(d)}</td>`).join('')}</tr>`).join('')}</tbody></table></div></section>`:''}
-      ${c.code?`<section class="part"><h2>${esc(c.code.label||'실제로는 이렇게 생겼어요')}</h2><pre class="code">${codeHTML(c.code.text)}</pre></section>`:''}
-      <section class="part"><h2>이 메뉴에 나오는 단어</h2><div class="wchips">${c.words.map(id=>`<button class="wchip" data-act="goword" data-id="${id}">${esc(W[id].term)}</button>`).join('')}</div></section>
+      ${c.code?`<section class="part"><h2>${esc(c.code.label||'실제 주방에서는')}</h2><pre class="code">${codeHTML(c.code.text)}</pre></section>`:''}
+      <section class="part"><h2>이 메뉴의 재료 단어</h2><div class="wchips">${c.words.map(id=>`<button class="wchip" data-act="goword" data-id="${id}">${esc(W[id].term)}</button>`).join('')}</div></section>
       <div class="dish-foot">
         <button class="btn ${done?'btn-done':'btn-primary'}" data-act="toggleDone" aria-pressed="${done}">${done?'이해 완료':'이해했어요'}</button>
         <button class="btn" data-act="quizTopic" data-id="${c.id}">이 메뉴 퀴즈 풀기</button>
@@ -1437,7 +1505,7 @@ function renderNotes(){
   $('#view-notes').innerHTML = `
   <div class="title-row">
     <div style="display:flex;align-items:flex-end;gap:16px">
-      ${spikeSVG(items.length)}
+      <img class="title-spike" src="img/notes.jpg" alt="" width="640" height="640">
       <div><h1>오답 전표</h1><p class="sub">${items.length?`틀린 주문 ${items.length}장이 꽂혀 있어요. "오답만 다시 풀기"에서 맞히면 빠져요.`:'꽂힌 전표가 없어요. 주문 퀴즈에서 틀린 문제가 여기에 모여요.'}</p></div>
     </div>
     ${items.length?`<button class="btn btn-primary" data-act="retryWrong">오답만 다시 풀기 (${items.length})</button>`:`<a class="btn btn-primary" href="#quiz">주문 퀴즈 풀기</a>`}
@@ -1559,7 +1627,8 @@ function renderSpeed(){
       <span class="lives" aria-label="남은 기회 ${SP.lives}번">기회 ${[0,1,2].map(k=>`<i class="${k<SP.lives?'':'off'}"></i>`).join('')}</span>
     </div>
     <div class="g-timer" id="g-timer"><i style="transform:scaleX(${SP.locked?0:1})"></i></div>
-    <div class="order">
+    <img class="rail" src="img/rail.jpg" alt="" width="1600" height="203">
+    <div class="order ${SP.locked?'':'hang'}">
       <div class="order-head"><span><b>주문 전표 ${SP.n}번</b></span><span>${it.type==='code'?'상태 코드':'메서드'}</span></div>
       <div class="order-body">
         <p class="g-kind">${it.type==='code'?'주방(서버)은 어떤 <b>상태 코드</b>로 대답할까요?':'손님은 어떤 <b>메서드</b>로 주문할까요?'}</p>
@@ -1620,7 +1689,7 @@ function renderMatch(miss){
       ${MT.tiles.map((t,i)=>{
         const w = W[t.wid], isDone = MT.done[t.wid], isOpen = MT.open.includes(i);
         const face = t.kind==='term' ? `<span class="lab">단어</span><span class="term">${esc(w.term)}</span>` : `<span class="lab">뜻</span><span class="mean">${esc(w.mean.split('.')[0])}</span>`;
-        return `<button class="m-tile ${isDone?'is-done':''} ${isOpen?'is-open':''} ${miss&&isOpen?'is-miss':''}" data-act="mflip" data-id="${i}" aria-label="${isOpen||isDone?esc(t.kind==='term'?w.term:w.mean):'뒤집힌 카드 '+(i+1)}"><span class="m-in"><span class="m-face m-back">?</span><span class="m-face m-front">${face}</span></span></button>`;
+        return `<button class="m-tile ${isDone?'is-done':''} ${isOpen?'is-open':''} ${miss&&isOpen?'is-miss':''}" data-act="mflip" data-id="${i}" aria-label="${isOpen||isDone?esc(t.kind==='term'?w.term:w.mean):'뒤집힌 카드 '+(i+1)}"><span class="m-in"><span class="m-face m-back"></span><span class="m-face m-front">${face}</span></span></button>`;
       }).join('')}
     </div>
     ${MT.over?'':`<div style="text-align:center"><button class="btn btn-quiet btn-sm" data-act="gameHub">그만하기</button></div>`}
